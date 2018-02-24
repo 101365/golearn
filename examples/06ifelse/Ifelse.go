@@ -4,6 +4,8 @@ import "fmt"
 
 func main() {
 
+	// if else
+
 	var flag = true
 	if flag {
 		fmt.Println("it is true")
