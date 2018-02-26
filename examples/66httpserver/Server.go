@@ -20,7 +20,7 @@ func sayHello(w http.ResponseWriter, r *http.Request)  {
 	fmt.Fprintf(w, "Hello world!!!")
 }
 
-// 启动运行  在浏览器访问 http://localhost:9090 即可显示：Hello world!!!
+// 启动运行  在浏览器访问 http://localhost:9090/?name=张三 即可显示：Hello world!!! 后台会打印张三。
 func main() {
 
 	http.HandleFunc("/", sayHello)
