@@ -8,7 +8,7 @@ func add(x, y int) int {
 	return x + y
 }
 
-// 多返回值
+// 多返回值 常见的是返回结果+错误信息
 func demo() (int, int)  {
 	return 2, 8
 }
@@ -22,5 +22,9 @@ func main() {
 	// 多返回值
 	x, y := demo()
 	fmt.Println(x, ", ", y)
+
+	// 忽略部分返回值
+	_, k := demo()
+	fmt.Println(k)
 
 }
