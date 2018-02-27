@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // 本例演示接口的使用
 
@@ -11,7 +13,7 @@ type animal interface {
 	run()
 }
 
-type human struct {
+type cat struct {
 	name string
 }
 
@@ -19,7 +21,7 @@ type dog struct {
 	name string
 }
 
-func (self human) say(s string)  {
+func (self cat) say(s string)  {
 	fmt.Println(self.name + " 说: ", s)
 }
 
@@ -27,7 +29,7 @@ func (self dog) say(s string)  {
 	fmt.Println(self.name + " 说: ", s)
 }
 
-func (self human) run()  {
+func (self cat) run()  {
 	fmt.Println("human is running...")
 }
 
@@ -43,7 +45,7 @@ func display(a animal)  {
 
 func main() {
 
-	h := human{"larry"}
+	h := cat{"larry"}
 	h.say("不错")
 	h.run()
 
@@ -54,6 +56,9 @@ func main() {
 	// 演示调用
 	display(h)
 	display(d)
+
+	var a animal = &h
+	fmt.Println(a)
 
 	// TODO 接口方法实现接收器应该是值对象还是指针对象？ 待补充
 
