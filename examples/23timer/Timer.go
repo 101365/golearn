@@ -6,6 +6,7 @@ import (
 )
 
 // 演示定时器
+// 定时器的作用是在未来的某个时间节点执行一次
 func main() {
 
 	t1 := time.NewTimer(time.Second * 2)
