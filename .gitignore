@@ -4,3 +4,5 @@ dev/
 .statsd/
 .DS_Store
 vendor
+*.ipr
+*.iws
