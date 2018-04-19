@@ -1,38 +1,62 @@
 package main
 
-import "testing"
+import (
+	"testing"
+	"fmt"
+	"sync"
+	"runtime"
+	"encoding/json"
+)
 
-// 验证并发场景下，map赋值是否为原子操作
-
-var m = make(map[string]string)
 
 func TestMultiReadAndWrite(t *testing.T) {
 
-	for i:=0; i<100000; i++ {
-		// 模拟写
-		go func() {
+	runtime.GOMAXPROCS(runtime.NumCPU())
 
-		}()
+	m := write(7)
 
-		// 模拟读
-		go func() {
+	defer func() {
+		if e := recover(); e != nil {
+			fmt.Println(e)
+		}
+	}()
 
-		}()
+	loop := 100
+	var wg sync.WaitGroup
+	wg.Add(loop)
+
+	// 启动若干个进程同时访问
+	for i:=0; i<loop; i++ {
+		go func(index int) {
+
+			defer func() {
+				wg.Done()
+			}()
+
+			reqJson, _ := json.Marshal(m)
+
+			fmt.Println(reqJson)
+
+		}(i)
 	}
 
+	// 等待执行完成
+	wg.Wait()
+
+	fmt.Println("over ...")
+
 }
 
-func write()  {
+func write(size int) *map[string]string {
 	tmp := make(map[string]string)
-	tmp["s"] = "s"
-
-	// 赋值
-	m = tmp
+	for i:=0; i<size; i++ {
+		k := fmt.Sprintf("%v", i)
+		tmp["key_" + k] = "value_" + k
+	}
+	fmt.Println(tmp)
+	return &tmp
 }
 
-func read()  {
-
-}
 
 
 
