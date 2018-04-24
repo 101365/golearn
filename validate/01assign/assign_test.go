@@ -1,13 +1,12 @@
 package main
 
 import (
-	"testing"
-	"fmt"
-	"sync"
-	"runtime"
 	"encoding/json"
+	"fmt"
+	"runtime"
+	"sync"
+	"testing"
 )
-
 
 func TestMultiReadAndWrite(t *testing.T) {
 
@@ -26,7 +25,7 @@ func TestMultiReadAndWrite(t *testing.T) {
 	wg.Add(loop)
 
 	// 启动若干个进程同时访问
-	for i:=0; i<loop; i++ {
+	for i := 0; i < loop; i++ {
 		go func(index int) {
 
 			defer func() {
@@ -49,15 +48,10 @@ func TestMultiReadAndWrite(t *testing.T) {
 
 func write(size int) *map[string]string {
 	tmp := make(map[string]string)
-	for i:=0; i<size; i++ {
+	for i := 0; i < size; i++ {
 		k := fmt.Sprintf("%v", i)
-		tmp["key_" + k] = "value_" + k
+		tmp["key_"+k] = "value_" + k
 	}
 	fmt.Println(tmp)
 	return &tmp
 }
-
-
-
-
-
