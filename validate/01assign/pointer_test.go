@@ -6,14 +6,35 @@ import (
 )
 
 func TestPointer(t *testing.T) {
+	//
+	//v := "hello"
+	//
+	//demo(&v)
+	//
+	//var x Demo = TwoPoint{}
+	//fmt.Println(x)
 
-	v := "hello"
+	errorMethod()
 
-	demo(&v)
+	fmt.Println("after panic")
 
-	var x Demo = TwoPoint{}
-	fmt.Println(x)
+}
 
+func errorMethod() string {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println(r)
+		}
+	}()
+
+	real()
+
+	return "success"
+}
+
+//go:nosplit
+func real() {
+	panic("错误啦")
 }
 
 func demo(s *string)  {
