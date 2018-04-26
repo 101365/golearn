@@ -41,6 +41,10 @@ func demo(s *string)  {
 	fmt.Println(s)
 }
 
+func demo2()  {
+
+	fmt.Println("hello")
+}
 type Point struct {
 	X int
 }
