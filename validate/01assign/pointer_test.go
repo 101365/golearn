@@ -42,8 +42,9 @@ func demo(s *string)  {
 }
 
 func demo2()  {
+fmt.Println("hello")
+fmt.Println()
 
-	fmt.Println("hello")
 }
 type Point struct {
 	X int
