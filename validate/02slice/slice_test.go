@@ -57,3 +57,15 @@ func TestNil(t *testing.T)  {
 	b[3] = 123
 	fmt.Println(b)
 }
+
+func TestPrint(t *testing.T)  {
+	const sample = "\xbd\xb2\x3d\xbc\x20\xe2\x8c\x98"
+	fmt.Printf("%+q \n", sample)
+}
+
+func TestUTF8(t *testing.T)  {
+	// 变量名可以是中文
+	var 中文变量 = "中文字符"
+	fmt.Println(中文变量)
+
+}
