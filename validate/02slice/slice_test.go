@@ -68,4 +68,7 @@ func TestUTF8(t *testing.T)  {
 	var 中文变量 = "中文字符"
 	fmt.Println(中文变量)
 
+	var 中文变量2 = 12
+	fmt.Println(中文变量2)
+
 }
