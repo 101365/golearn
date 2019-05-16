@@ -3,6 +3,7 @@ package mock
 import (
 	"bou.ke/monkey"
 	"bytes"
+	"fmt"
 	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"net/http"
@@ -34,4 +35,13 @@ func TestMockServer(t *testing.T) {
 	}
 
 	aq.True(string(body) == "hello")
+}
+
+func TestSlice(t *testing.T) {
+	s := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+	s1 := s[2:5]    // [2 3 4]
+	s2 := s1[2:6:7] // [4 5 6 7]
+
+	fmt.Println(s1, s2, len(s2), cap(s2))
+	//[2 3 4] [4 5 6 7] 4 5
 }

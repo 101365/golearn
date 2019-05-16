@@ -12,9 +12,9 @@ import (
 // 对比两个文件中重复的UID
 func TestCompare(t *testing.T) {
 
-	zhunxingMap := getZhunxingUIDList("/Users/xxx/Downloads/xxx.txt")
+	zhunxingMap := getZhunxingUIDList("/Users/didi/Downloads/110423_pid.log")
 	// 从其他地方读取
-	rawMap := getZhunxingUIDList("/Users/xxx/Downloads/xxx.log")
+	rawMap := getZhunxingUIDList("/Users/didi/Downloads/莆田二次870097_04270-1556444682752_0.csv")
 
 	//fmt.Println(len(rawMap))
 
@@ -29,7 +29,7 @@ func TestCompare(t *testing.T) {
 
 	fmt.Println(len(sameM))
 
-	WriteMaptoFile(sameM, fmt.Sprintf("/Users/xxx/Downloads/native_same_pid_list_%v.txt", len(sameM)))
+	WriteMaptoFile(sameM, fmt.Sprintf("/Users/didi/Downloads/110361_in_%v.txt", len(sameM)))
 
 }
 
