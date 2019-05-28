@@ -34,6 +34,8 @@ func TestGroup(t *testing.T) {
 		fmt.Println(m["小时"], "	", m["点击量"], "	", fmt.Sprintf("%.2f%%", vv*100))
 	}
 
+	fmt.Println("合计", "	", sum)
+
 }
 
 var s = `[
